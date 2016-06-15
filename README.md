@@ -30,7 +30,6 @@ def choix(nombre, numero1, numero2):
      if nombre >= 2:
          btn = Button(tk2, text=numero2[0], command=numero2[1])
          btn.pack()
-def choix_partir_depart():
-     choix(1, bouton1, bouton2)
 
-choix_partir_depart()
+choix(2, bouton1, bouton2)
+
