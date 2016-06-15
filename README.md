@@ -1,2 +1,2 @@
 # pythonboutonscode
-C'est le jeu de Jeanne
+C'est le jeu de Jeanne.
