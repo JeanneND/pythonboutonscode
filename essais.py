@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #pythonboutoncode
 from Tkinter import*
 import time
@@ -8,11 +10,7 @@ tk2 = Tk()
 def texte(texte, hauteur, effacer):
      if effacer == True:
         canvas.create_rectangle(0, 0, 600, 600, fill='white')
-     a = len(texte)
-     if a < 50:
-        canvas.create_text(250, hauteur,text=texte)
-     else:
-        print('Cette chaîne de caractères est trop longue')
+     canvas.create_text(250, hauteur,text=texte)
 
 def choix_partir():
      texte('Vous incarnez un jeune homme qui se pense ', 250, True)
@@ -70,6 +68,7 @@ def se_retirer_combat_riviere():
      btb.destroy()
      global bta
      bta = Button(tk2, text='Continuer', command=rencontre_habitant_fuite_combat_riviere)
+     bta.pack()
 
 def rencontre_habitant_fuite_combat_riviere():
      texte('Je rencontre un habitant sur le chemin du retour.', 250, True)
@@ -78,41 +77,43 @@ def rencontre_habitant_fuite_combat_riviere():
      bta = Button(tk2, text='Passer à la discussion', command=discussion1replique1)
      bta.pack()
 
-def discussion1replique1()):
-     texte('Habitant : Salut !Qu\’est-ce que vous faites là ?', 250, True)
+
+
+def discussion1replique1():
+     texte('''Habitant : Salut !Qu’est-ce que vous faites là ?''', 250, True)
      bta.destroy()
      global bta
      bta = Button(tk2, text='Passer à la réplique suivante', command=discussion1replique2)
      bta.pack()
 
-def discussion1replique2()):
+def discussion1replique2():
      texte('Moi : J\ai entendu quelqu\'un dans les bois ! Des monstres!', 250, True)
-     texte('Je crois qu\'ils détenaient quelqu\'un', 270, True)
-     texte('Mais je préfère me retirer.C\'est plus sûr pour moi .', 290, True)
-     texte('Aurevoir !', 310, True)
+     texte('Je crois qu\'ils détenaient quelqu\'un ', 270, False)
+     texte('Mais je préfère me retirer.C\'est plus sûr pour moi .', 290, False)
+     texte('Aurevoir !', 310, False)
      bta.destroy()
      global bta
      bta = Button(tk2, text='Passer à la réplique suivante', command=discussion1replique3)
      bta.pack()   
 
-def discussion1replique3()):
+def discussion1replique3():
      texte('Habitant : Un instant !Je pense qu\'il s\'agit d\'Ilon, le magicien.', 250, True)
-     texte('Il est de plus en plus hostile , ces temps-ci .', 270, True)
-     texte('Ça ne m\'étonnerait pas de lui.Mais , vous avez raison de ne pas y aller.', 290, True)
-     texte('Il est dangereux .', 310, True)
+     texte('Il est de plus en plus hostile , ces temps-ci .', 270, False)
+     texte('Ça ne m\'étonnerait pas de lui.Mais , vous avez raison de ne pas y aller.', 290, False)
+     texte('Il est dangereux .', 310, False)
      bta.destroy()
      global bta
      bta = Button(tk2, text='Passer à la réplique suivante', command=discussion1replique4)
      bta.pack()
 
- def discussion1replique2()):
+def discussion1replique4():
      texte('Moi :Merci beaucoup !', 250, True)
-     texte('Je crois que je vais aller aux Champs.', 270, True)
-     texte('Aurevoir !', 290, True)
+     texte('Je crois que je vais aller aux Champs.', 270, False)
+     texte('Aurevoir !', 290, False)
      bta.destroy()
      global bta
      bta = Button(tk2, text='Aller aux Champs se divertir', command=aller_aux_champs)
-     bta.pack()   
+     bta.pack() 
 
 def se_rapprocher_combat_riviere():
      texte('Je suis arrivé trop tard.Il n\'y a plus que...', 100, True)
@@ -126,53 +127,7 @@ def se_rapprocher_combat_riviere():
 
 
 choix_partir()
-global g1
-g1 = False
-global a1
-a1 = False
-global g2
-g2 = False
-global n1
-n1 = False
-def gagner(event):
-     if g1 == True and a1 == True and g2 == True and n1 == True:
-        texte('Gagné', 250, True)
-        bta.destroy()
-        btb.destroy()
-        btc.destroy()
-     else:
-        return True    
 
-def essai():
-     canvas.bind_all('<KeyPress-c>', essai_c)
-     canvas.bind_all('<KeyPress-o>', essai_o)
-     canvas.bind_all('<KeyPress-d>', essai_d)
-     canvas.bind_all('<KeyPress-e>', essai_e)
-     canvas.bind_all('<KeyPress-t>', gagner)
-
-def essai_c(event):
-     global g1
-     g1 = True
-
-def essai_o(event):
-     global a1
-     a1 = True
-
-def essai_d(event):
-     global g2
-     g2 = True
-
-def essai_e(event):
-     global n1
-     n1 = True
-
-def test():
-     if g2 == True:
-            print('réussi')
-     else:
-            print('raté')
-            
-essai()
 
 
 
