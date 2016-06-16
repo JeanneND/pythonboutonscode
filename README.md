@@ -25,11 +25,13 @@ def texte(texte, hauteur):
 
 def choix(nombre, numero1, numero2):
      if nombre >= 1:
-         btn = Button(tk2, text=numero1[0], command=numero1[1])
-         btn.pack()
+         global bta
+         bta = Button(tk2, text=numero1[0], command=numero1[1])
+         bta.pack()
      if nombre >= 2:
-         btn = Button(tk2, text=numero2[0], command=numero2[1])
-         btn.pack()
+         global btb
+         btb = Button(tk2, text=numero2[0], command=numero2[1])
+         btb.pack()
 
-choix(2, bouton1, bouton2)
+
 
