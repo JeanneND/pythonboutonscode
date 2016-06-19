@@ -1,4 +1,3 @@
-
 global g1
 g1 = False
 global a1
@@ -27,6 +26,8 @@ def essai_c(event):
      global g1
      g1 = True
 
+
+
 def essai_o(event):
      global a1
      a1 = True
@@ -38,5 +39,7 @@ def essai_d(event):
 def essai_e(event):
      global n1
      n1 = True
-        
+
+
+
 essai()
