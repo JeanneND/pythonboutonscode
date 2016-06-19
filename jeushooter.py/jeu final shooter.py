@@ -1,5 +1,6 @@
 from Tkinter import*
 import time
+
 tk = Tk()
 canvas = Canvas(tk, width=300, height=500)
 canvas.pack()
@@ -9,6 +10,7 @@ global cube2_bouge
 cube2_bouge = False
 global cube3_bouge
 cube3_bouge = False
+
 def creer_lanceur():
      global id_lanceur
      id_lanceur = canvas.create_rectangle(150, 450, 200, 500, fill='gray')
@@ -48,55 +50,32 @@ def creer_cubes():
      global id_cube3
      id_cube3 = canvas.create_rectangle(200, 0, 300, 100, fill='blue')
 
-def bouger_cube1():
+def deplacement_cube(cube):
      for x in range(0, 30):
-         canvas.move(id_cube1, 2, 0)
+         canvas.move(cube, 2, 0)
          tk.update()
          time.sleep(0.01)
-         canvas.move(id_cube1, -4, 0)
+         canvas.move(cube, -4, 0)
          tk.update()
          time.sleep(0.01)
-         canvas.move(id_cube1, 2, 0)
+         canvas.move(cube, 2, 0)
          tk.update()
          time.sleep(0.01)
      for x in range(0, 50):
-         canvas.move(id_cube1, 0, -2)
+         canvas.move(cube, 0, -2)
          tk.update()
          time.sleep(0.002)
+
+def bouger_cube1():
+     deplacement_cube(id_cube1)
      cube1_bouge = True
 
 def bouger_cube2():
-     for x in range(0, 30):
-         canvas.move(id_cube2, 2, 0)
-         tk.update()
-         time.sleep(0.01)
-         canvas.move(id_cube2, -4, 0)
-         tk.update()
-         time.sleep(0.01)
-         canvas.move(id_cube2, 2, 0)
-         tk.update()
-         time.sleep(0.01)
-     for x in range(0, 50):
-         canvas.move(id_cube2, 0, -2)
-         tk.update()
-         time.sleep(0.002)
+     deplacement_cube(id_cube2)
      cube2_bouge = True
 
 def bouger_cube3():
-     for x in range(0, 30):
-         canvas.move(id_cube3, 2, 0)
-         tk.update()
-         time.sleep(0.01)
-         canvas.move(id_cube3, -4, 0)
-         tk.update()
-         time.sleep(0.01)
-         canvas.move(id_cube3, 2, 0)
-         tk.update()
-         time.sleep(0.01)
-     for x in range(0, 50):
-         canvas.move(id_cube3, 0, -2)
-         tk.update()
-         time.sleep(0.002)
+     deplacement_cube(id_cube3)
      cube3_bouge = True
 
 creer_cubes()
