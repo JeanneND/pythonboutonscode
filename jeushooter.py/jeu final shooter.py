@@ -107,8 +107,7 @@ def creer_balle(event):
          canvas.move(id_balle, 0, -2)
          tk.update()
          time.sleep(0.005)
-     if x1 == 0 and cube1_bouge == False:
-         bouger_cube1()
+     if x1 == 0 and not cube1_bouge: bouger_cube1()
      if x1 == 50 and cube1_bouge == False:
          bouger_cube1()
      if x1 == 100 and cube2_bouge == False:
