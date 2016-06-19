@@ -1,17 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#pythonboutoncode
-from Tkinter import*
-import time
-tk = Tk()
-canvas = Canvas(tk, width=500, height=500)
-canvas.pack()
-tk2 = Tk()
-def texte(texte, hauteur, effacer):
-     if effacer == True:
-        canvas.create_rectangle(0, 0, 600, 600, fill='white')
-     canvas.create_text(250, hauteur,text=texte)
-
 def choix_partir():
      texte('Vous incarnez un jeune homme qui se pense ', 250, True)
      texte('prêt à quitter son village', 260, False)
@@ -61,6 +47,7 @@ def ruisseau_rencontre():
      global btb
      btb = Button(tk2, text='Se rapprocher', command=se_rapprocher_combat_riviere)
      btb.pack()
+
 
 def se_retirer_combat_riviere():
      texte(' Ce combat n\'est pas le mien. Je me retire.', 100, True)
@@ -122,14 +109,35 @@ def se_rapprocher_combat_riviere():
      canvas.create_text(250, 250, text='Sans en subir les conséquences', fill='red',  font=('Phosphate', 24))
      btb.destroy()
      bta.destroy()
+     global bta
+     bta = Button(tk2, text='Aller aux Champs', command=aller_aux_champs)
+     bta.pack()
+     global btb
+     btb = Button(tk2, text='prevenir le village', command=prev_village)
+     btb.pack()
 
+def prev_village():
+     texte('''Ce combat n’est pas le mien .Je me retires , mais ,''', 125, True)
+     texte(''' cachés derrière un arbre, deux enfants m’attendent.Bon.''', 150, False)
+     texte('''-Salut !Qu’est-ce que vous faites là ?''', 225, False)
+     texte('''-Oh… C’est à dire que… Eh bien,''', 250, False )
+     texte('''vous n’allez sans doute pas me croire,''', 275, False)
+     texte(''' mais j’ai entendu des cris et vu un message''', 300, False)
+     texte(''' dans les bois. Je m’en vais en faire part au village''', 325, False)
+     texte('''-Quelque chose me dit que le magicien Ilon est dans le coup.''', 350, False)
+     texte(''' Il est en mauvais termes avec nous en ce moment''', 375, False)
+     texte(''' et je le vois bien déposer un message de menace.''', 400, False)
+     texte('''Ce serait tout à fait lui.Si j’était vous, j’irais aux Champs.''', 425, False)
+     texte('''C’est votre seule piste et j’ai entendu dire qu’il y traîne parfois.''', 450, False)
+     texte('''-Merci beaucoup !''', 475, False)
+     bta.destroy()
+     btb.destroy()
+     global bta
+     bta = Button(tk2, text='Aller aux Champs', command=aller_aux_champs)
+     bta.pack()
 
-
-
-choix_partir()
-
-
-
-
-
-
+def aller_aux_champs():
+     texte('Je vais aux Champs', 250, True)
+     texte('Mais je n\'ai pas le temps de me défendre que déjà', 275, False)
+     bta.destroy()
+     
